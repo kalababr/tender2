@@ -1,0 +1,123 @@
+/* ── Trusted companies marquee ─────────────────────────────────────────── */
+.marquee-section{padding:48px 0 44px;border-bottom:1px solid var(--line)}
+.marquee-label{text-align:center;color:var(--muted);margin-bottom:22px}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:marquee 45s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-group{display:flex;flex-shrink:0;align-items:center}
+.marquee-item{display:flex;align-items:center;gap:72px;padding-right:72px}
+.marquee-item:after{content:'';width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.company{display:flex;align-items:center;gap:16px;font:500 28px/1 'Playfair Display','Noto Serif Ethiopic',serif;color:var(--ink);white-space:nowrap}
+.company img{height:56px;width:auto;max-width:150px;object-fit:contain;flex-shrink:0}
+.company-logo{width:150px;height:44px;object-fit:contain;flex-shrink:0;padding:3px 8px;background:var(--white);border:1px solid var(--line);border-radius:4px;transition:box-shadow .2s}
+.marquee-item:hover .company-logo{border-color:var(--gold);box-shadow:0 4px 14px rgba(8,47,40,.12)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}.marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}}
+
+/* ── Shared ────────────────────────────────────────────────────────────── */
+#directory,#news,#contact{scroll-margin-top:24px}
+.section.alt{background:var(--wash);border-top:1px solid var(--line)}
+
+/* ── Directory ─────────────────────────────────────────────────────────── */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{border:1px solid var(--line);background:var(--white);color:var(--ink);padding:8px 14px;font-size:12px;font-weight:500;border-radius:2px;transition:background .2s,color .2s}
+.chip:hover{border-color:var(--emerald)}
+.chip[aria-pressed="true"]{background:var(--emerald);border-color:var(--emerald);color:var(--white)}
+.biz-top{display:flex;justify-content:space-between;align-items:center}
+.verified{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:var(--gold-ink)}
+.verified svg{width:14px;height:14px}
+.tender-head{display:flex;align-items:center;gap:12px}
+.tender-head .tag{align-self:center}
+.sector-icon{width:42px;height:42px;display:grid;place-items:center;background:var(--wash);color:var(--emerald);border-radius:3px;flex-shrink:0}
+.sector-icon svg{width:22px;height:22px}
+.biz h3{font-size:21px;margin:18px 0 10px}
+.biz p{min-height:36px}.biz .detail{text-decoration:none}
+
+/* ── News ──────────────────────────────────────────────────────────────── */
+.news-grid{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:20px}
+.news-card{border:1px solid var(--line);background:var(--white);padding:25px 23px;display:flex;flex-direction:column;border-radius:3px}
+.news-card .tag{align-self:start;padding:4px 8px;background:var(--wash);color:var(--emerald);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.news-card h3{font:400 21px/1.4 'Playfair Display',serif;margin:16px 0 10px}
+.news-card p{font-size:12px;color:var(--muted)}
+.news-meta{margin-top:auto;padding-top:18px;font-size:10px;color:var(--muted);display:flex;gap:10px}
+.news-card.featured{grid-row:span 2;background:var(--emerald);border-color:var(--emerald);color:var(--white);padding:36px 34px;justify-content:flex-start}
+.news-card.featured .tag{background:var(--gold);color:var(--deep)}
+.news-card.featured h3{font-size:34px;line-height:1.25;margin:22px 0 16px}
+.news-card.featured p{color:var(--paper);font-size:14px;line-height:1.8}
+.news-card.featured .news-meta{color:var(--gold)}
+.news-card a.read{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;color:var(--emerald);margin-top:14px}
+.news-card a.read:hover{color:var(--gold-ink)}
+.news-card.featured a.read{color:var(--gold)}
+
+/* ── Contact ───────────────────────────────────────────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:stretch}
+.contact .kicker{color:var(--gold-ink);margin-bottom:12px}
+.contact-intro{color:var(--muted);font-size:14px;margin:14px 0 26px;max-width:460px}
+.contact-list{list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:14px;font-size:13px}
+.contact-list li{display:flex;align-items:center;gap:14px}
+.contact-list svg{color:var(--gold-ink)}
+.contact-form{display:flex;flex-direction:column;gap:12px}
+.contact-form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact-form input,.contact-form textarea{width:100%;border:1px solid var(--line);background:var(--white);padding:13px 14px;font-size:13px;color:var(--ink);border-radius:2px}
+.contact-form textarea{font:inherit;min-height:110px;resize:vertical}
+.contact-form .btn{align-self:flex-start}
+.form-status{font-size:12px;color:var(--emerald)}
+.map{position:relative;border:1px solid var(--line);background:var(--wash);min-height:460px;display:flex;flex-direction:column}
+.map iframe{border:0;width:100%;flex:1;min-height:420px;filter:saturate(.8)}
+.map-caption{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;font-size:10px;color:var(--muted);background:var(--white);border-top:1px solid var(--line)}
+.map-caption a{border-bottom:1px solid var(--line)}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+.site-footer{background:var(--deep);color:var(--paper);padding:64px 0 26px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:50px}
+.site-footer .brand strong{font-size:16px;color:var(--white)}
+.site-footer .brand small{color:rgba(251,251,247,.6)}
+.site-footer .mark{background:var(--gold);color:var(--deep)}
+.footer-about{font-size:12px;color:rgba(251,251,247,.72);margin-top:20px;max-width:300px}
+.site-footer h4{margin:0 0 16px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.footer-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:13px}
+.footer-links a{color:rgba(251,251,247,.8)}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(251,251,247,.14);display:flex;justify-content:space-between;gap:20px;font-size:11px;color:rgba(251,251,247,.6)}
+.footer-bottom nav{display:flex;gap:22px}
+.footer-bottom a:hover{color:var(--gold)}
+
+@media(max-width:900px){
+  .news-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .news-card.featured{grid-row:auto}
+  .contact-grid{gap:36px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media(max-width:640px){
+  .marquee-item{gap:48px;padding-right:48px}.company{font-size:22px}.company img{height:44px;max-width:120px}.company-logo{width:112px;height:34px;padding:2px 6px}
+  .search select{flex:1 1 calc(100% - 110px)}
+  .contact-grid{grid-template-columns:1fr}
+  .contact-form .row{grid-template-columns:1fr}
+  .map{min-height:340px}.map iframe{min-height:300px}
+  .news-card.featured{padding:28px 24px}.news-card.featured h3{font-size:28px}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:14px}
+}
+
+/* ── Promotion / advertising ── */
+#advertise{scroll-margin-top:24px}
+.promo{background:var(--deep);color:var(--white)}
+.promo .kicker{color:var(--gold)}
+.promo .section-head p{color:rgba(251,251,247,.75)}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px}
+.promo-card{border:1px solid rgba(251,251,247,.16);background:rgba(251,251,247,.05);padding:28px 24px;border-radius:3px;display:flex;flex-direction:column}
+.promo-icon{width:44px;height:44px;display:grid;place-items:center;background:var(--gold);color:var(--deep);border-radius:3px}
+.promo-icon svg{width:22px;height:22px}
+.promo-card h3{font:400 23px/1.3 'Playfair Display','Noto Serif Ethiopic',serif;margin:20px 0 10px}
+.promo-card p{font-size:12px;color:rgba(251,251,247,.75)}
+.promo-card ul{list-style:none;margin:18px 0 0;padding:16px 0 0;border-top:1px solid rgba(251,251,247,.14);display:flex;flex-direction:column;gap:8px;font-size:12px}
+.promo-card li{display:flex;align-items:center;gap:10px}
+.promo-card li:before{content:'';width:5px;height:5px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.ad-sample{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--gold);color:var(--deep);padding:38px 32px 28px;border-radius:3px}
+.ad-label{position:absolute;top:12px;left:32px;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.7}
+.ad-sample strong{display:block;font:400 30px/1.2 'Playfair Display','Noto Serif Ethiopic',serif}
+.ad-sample .copy{display:block;font-size:13px;margin-top:6px}
+.ad-sample .btn{background:var(--deep);color:var(--white)}
+.ad-sample .btn:hover{background:var(--emerald)}
+@media(max-width:900px){.promo-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.ad-sample{flex-direction:column;align-items:flex-start}.ad-sample strong{font-size:26px}}
