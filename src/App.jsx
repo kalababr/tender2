@@ -18,12 +18,17 @@ function handleAnchorNavigation(event) {
   if (!(event.target instanceof Element)) return
 
   const link = event.target.closest('a[href^="#"]')
-  const targetId = link?.getAttribute('href')?.slice(1)
-  const target = targetId ? document.getElementById(targetId) : null
-  if (!target) return
+  if (!link) return
 
   event.preventDefault()
-  target.scrollIntoView()
+  const targetId = link.getAttribute('href').slice(1)
+  const target = targetId ? document.getElementById(targetId) : null
+  target?.scrollIntoView()
+  window.history.replaceState(
+    window.history.state,
+    '',
+    `${window.location.pathname}${window.location.search}`,
+  )
 }
 
 function Landing() {
