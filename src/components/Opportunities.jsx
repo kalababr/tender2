@@ -37,9 +37,15 @@ export default function Opportunities() {
   }, [query, sector, region, t])
 
   const openBrief = (tender) => {
+    const copy = `tendersData.${tender.key}`
     setBrief({
-      title: t(`tendersData.${tender.key}.briefTitle`),
-      description: `${t('tendersData.briefPrefix')} ${t(`tendersData.${tender.key}.briefText`)} ${t('tendersData.sampleNotice')}`,
+      title: t(`${copy}.briefTitle`),
+      description: t(`${copy}.briefText`),
+      scope: t(`tenderDetails.${tender.key}.scope`),
+      deliverables: t(`tenderDetails.${tender.key}.deliverables`),
+      reference: `SAMPLE-${tender.sample}`,
+      sector: t(`${copy}.tag`),
+      location: t(`regions.${tender.region}`),
     })
     dialogRef.current?.showModal()
   }
@@ -103,7 +109,6 @@ export default function Opportunities() {
             <span id="result-count">
               {t('opportunities.count', { n: String(results.length).padStart(2, '0') })}
             </span>
-            <span>{t('opportunities.disclaimer')}</span>
           </div>
 
           <div className="opportunities">

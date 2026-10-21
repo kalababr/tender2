@@ -15,11 +15,10 @@ export default function TrustedCompanies() {
               {COMPANIES.map((c) => (
                 <span className="marquee-item" key={`${copy}-${c.name}`}>
                   <span className="company">
-                    {c.logo ? (
-                      <img className="company-logo" src={c.logo} alt={c.name} loading="lazy" />
-                    ) : (
-                      <span>{c.name}</span>
+                    {c.logo && (
+                      <img className="company-logo" src={c.logo} alt="" aria-hidden="true" loading="lazy" />
                     )}
+                    <span className="company-name">{c.name}</span>
                   </span>
                 </span>
               ))}

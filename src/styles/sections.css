@@ -1,5 +1,5 @@
 /* ── Trusted companies marquee ─────────────────────────────────────────── */
-.marquee-section{padding:48px 0 44px;border-bottom:1px solid var(--line)}
+.marquee-section{padding:54px 0 52px;border-bottom:1px solid var(--line)}
 .marquee-label{text-align:center;color:var(--muted);margin-bottom:22px}
 .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .marquee-track{display:flex;width:max-content;animation:marquee 45s linear infinite}
@@ -10,6 +10,7 @@
 .company{display:flex;align-items:center;gap:16px;font:500 28px/1 'Playfair Display','Noto Serif Ethiopic',serif;color:var(--ink);white-space:nowrap}
 .company img{height:56px;width:auto;max-width:150px;object-fit:contain;flex-shrink:0}
 .company-logo{width:150px;height:44px;object-fit:contain;flex-shrink:0;padding:3px 8px;background:var(--white);border:1px solid var(--line);border-radius:4px;transition:box-shadow .2s}
+.company-name{max-width:180px;font:600 14px/1.35 'DM Sans','Noto Sans Ethiopic',sans-serif;color:var(--ink);white-space:normal}
 .marquee-item:hover .company-logo{border-color:var(--gold);box-shadow:0 4px 14px rgba(8,47,40,.12)}
 @keyframes marquee{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}.marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}}
@@ -121,3 +122,76 @@
 .ad-sample .btn:hover{background:var(--emerald)}
 @media(max-width:900px){.promo-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.ad-sample{flex-direction:column;align-items:flex-start}.ad-sample strong{font-size:26px}}
+
+/* ── Auth page (sign in / register) ── */
+.auth{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:var(--paper)}
+.auth-side{background:var(--deep);color:var(--white);padding:40px 56px;display:flex;flex-direction:column;justify-content:space-between;gap:48px}
+.auth-side .brand strong{color:var(--white)}
+.auth-side .brand small{color:rgba(251,251,247,.6)}
+.auth-side .mark{background:var(--gold);color:var(--deep)}
+.auth-side .kicker{color:var(--gold);margin-bottom:16px}
+.auth-side h1{font-size:48px;line-height:1.15;margin:0 0 18px;max-width:440px}
+.auth-side h1 em{color:var(--gold)}
+.auth-side p{color:rgba(251,251,247,.78);font-size:14px;line-height:1.8;max-width:400px}
+.auth-side>small{font-size:12px;color:rgba(251,251,247,.6)}
+.auth-main{padding:40px 56px;display:flex;flex-direction:column}
+.auth-top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.auth-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.auth-back:hover{color:var(--gold-ink)}
+.auth-back svg{width:16px;height:16px;transform:rotate(180deg)}
+.auth .lang{color:var(--ink);border-color:var(--line);background:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.auth .lang button:hover{background:var(--wash)}
+.auth-card{width:100%;max-width:420px;margin:auto;padding:40px 0}
+.auth-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);margin-bottom:28px}
+.auth-tabs button{border:0;background:none;padding:12px 0;margin-bottom:-1px;font-size:14px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent}
+.auth-tabs button[aria-pressed="true"]{color:var(--emerald);border-bottom-color:var(--gold)}
+.auth-card h2{font-size:32px;margin-bottom:8px}
+.auth-sub{color:var(--muted);font-size:13px;margin-bottom:24px}
+.auth-field{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:500}
+.auth-card .contact-form .btn{width:100%}
+@media(max-width:900px){
+  .auth{grid-template-columns:1fr}
+  .auth-side{padding:28px 22px;gap:28px}
+  .auth-side h1{font-size:38px}
+  .auth-main{padding:24px 22px}
+  .auth-card{padding:28px 0 20px}
+}
+
+.btn.google{width:100%;background:var(--white);color:#1f1f1f;border-color:#dadce0;font-weight:500;font-size:13px}
+.btn.google:hover{background:#f8f9fa;border-color:#c6c9cc}
+.btn.google svg{width:18px;height:18px;stroke:none}
+.auth-or{display:flex;align-items:center;gap:14px;margin:20px 0;color:var(--muted);font-size:12px}
+.auth-or:before,.auth-or:after{content:'';flex:1;height:1px;background:var(--line)}
+
+.brand-logo{height:38px;width:auto;display:block;flex-shrink:0}
+.brand strong{font-size:22px;letter-spacing:.3px}
+.site-footer .brand strong{font-size:20px}
+@media(max-width:640px){
+  .brand-logo{height:32px}
+  .brand strong{font-size:18px}
+}
+
+/* ── Directory: clickable cards + profile dialog ── */
+.biz{cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.biz:hover{border-color:var(--gold);box-shadow:0 10px 28px rgba(8,47,40,.1);transform:translateY(-2px)}
+.biz:hover .detail{color:var(--gold-ink)}
+.biz-dialog-meta{display:flex;align-items:center;gap:14px;margin-top:14px}
+.biz-dialog-meta .tag{padding:4px 8px;background:var(--wash);color:var(--emerald);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.biz-dialog-note{font-size:12px;border-top:1px solid var(--line);padding-top:16px}
+@media(prefers-reduced-motion:reduce){.biz:hover{transform:none}}
+
+#brief{width:min(640px,calc(100vw - 32px));max-height:min(82vh,760px);overflow:auto}
+#brief h2{margin:8px 0 10px;font-size:32px}
+#brief-description{color:var(--muted);font-size:14px}
+.brief-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin:22px 0;border:1px solid var(--line);background:var(--line)}
+.brief-meta div{min-width:0;padding:12px;background:var(--white)}
+.brief-meta dt{color:var(--muted);font-size:10px;font-weight:600;text-transform:uppercase}
+.brief-meta dd{margin:3px 0 0;font-size:13px;font-weight:600;overflow-wrap:anywhere}
+.brief-details{padding:16px 0;border-top:1px solid var(--line)}
+.brief-details h3,.brief-note h3{font-size:16px;margin-bottom:6px}
+.brief-details p,.brief-note p{font-size:13px}
+.brief-deliverables{margin:8px 0 0;padding-left:20px;font-size:13px}
+.brief-deliverables li+li{margin-top:5px}
+.brief-note{display:grid;gap:8px;margin:16px 0;padding:16px;background:var(--wash)}
+.brief-note p+p{padding-top:8px;border-top:1px solid var(--line)}
+@media(max-width:480px){.brief-meta{grid-template-columns:1fr}#brief{padding:26px 20px}}

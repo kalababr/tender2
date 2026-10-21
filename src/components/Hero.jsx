@@ -29,7 +29,6 @@ export default function Hero() {
           </a>
         </div>
       </div>
-      <span className="hero-caption">{t('hero.caption')}</span>
     </section>
     </div>
   )

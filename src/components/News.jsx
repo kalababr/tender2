@@ -1,4 +1,3 @@
-import Icon from './Icon.jsx'
 import { NEWS } from '../data/news.js'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
@@ -25,7 +24,6 @@ export default function News() {
             <h2>{t('news.title')}</h2>
             <p>{t('news.text')}</p>
           </div>
-          <a className="text-link" href="#news">{t('news.allNews')} <Icon name="arrow" /></a>
         </div>
 
         <div className="news-grid">
@@ -34,9 +32,6 @@ export default function News() {
               <span className="tag">{t(`newsData.${n.key}.tag`)}</span>
               <h3>{t(`newsData.${n.key}.title`)}</h3>
               <p>{t(`newsData.${n.key}.excerpt`)}</p>
-              {n.featured && (
-                <a className="read" href="#news">{t('news.read')} <Icon name="arrow" /></a>
-              )}
               <div className="news-meta">
                 <time dateTime={n.date}>{formatDate(n.date)}</time>
                 <span>{t('news.separator')}</span>

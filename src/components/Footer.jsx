@@ -44,10 +44,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span>{t('footer.copyright', { year: new Date().getFullYear() })}</span>
-          <nav aria-label={t('footer.legalAria')}>
-            <a href="#">{t('footer.privacy')}</a>
-            <a href="#">{t('footer.terms')}</a>
-          </nav>
+
         </div>
       </div>
     </footer>

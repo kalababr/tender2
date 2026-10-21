@@ -1,8 +1,8 @@
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { IconSprite } from './components/Icon.jsx'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import TrustedCompanies from './components/TrustedCompanies.jsx'
-import TrustBand from './components/TrustBand.jsx'
 import Opportunities from './components/Opportunities.jsx'
 import Directory from './components/Directory.jsx'
 import News from './components/News.jsx'
@@ -11,16 +11,15 @@ import About from './components/About.jsx'
 import CTA from './components/CTA.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import AuthPage from './pages/AuthPage.jsx'
 
-export default function App() {
+function Landing() {
   return (
     <>
-      <IconSprite />
       <Header />
       <main>
         <Hero />
         <TrustedCompanies />
-        <TrustBand />
         <Opportunities />
         <Directory />
         <News />
@@ -30,6 +29,19 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <>
+      <IconSprite />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/join" element={<AuthPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </>
   )
 }

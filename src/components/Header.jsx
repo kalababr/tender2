@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Brand from './Brand.jsx'
 import Icon from './Icon.jsx'
+import { Link } from 'react-router-dom'
 import LanguageToggle from './LanguageToggle.jsx'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
@@ -11,9 +12,9 @@ const MAIN_LINKS = [
   { href: '#contact', key: 'nav.contact' },
 ]
 const SECONDARY_LINKS = [
-  { href: '#contact', key: 'nav.post' },
+  { to: '/join', key: 'nav.post' },
   { href: '#about', key: 'nav.about' },
-  { href: '#', key: 'nav.join' },
+  { to: '/join', key: 'nav.join' },
 ]
 
 export default function Header() {
@@ -43,7 +44,9 @@ export default function Header() {
         </nav>
       </div>
       <nav className="nav-right" id="nav-right" aria-label={t('nav.secondaryNav')}>
-        {SECONDARY_LINKS.map((l) => (
+        {SECONDARY_LINKS.map((l) => l.to ? (
+          <Link key={l.key} to={l.to} onClick={close}>{t(l.key)}</Link>
+        ) : (
           <a key={l.key} href={l.href} onClick={close}>{t(l.key)}</a>
         ))}
         <LanguageToggle className="lang-desktop" />
