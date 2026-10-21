@@ -13,9 +13,22 @@ import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import AuthPage from './pages/AuthPage.jsx'
 
+function handleAnchorNavigation(event) {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+  if (!(event.target instanceof Element)) return
+
+  const link = event.target.closest('a[href^="#"]')
+  const targetId = link?.getAttribute('href')?.slice(1)
+  const target = targetId ? document.getElementById(targetId) : null
+  if (!target) return
+
+  event.preventDefault()
+  target.scrollIntoView()
+}
+
 function Landing() {
   return (
-    <>
+    <div onClick={handleAnchorNavigation}>
       <Header />
       <main>
         <Hero />
@@ -29,7 +42,7 @@ function Landing() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

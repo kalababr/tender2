@@ -50,11 +50,6 @@ export default function Opportunities() {
     dialogRef.current?.showModal()
   }
 
-  const scrollToSearch = (event) => {
-    event.preventDefault()
-    document.getElementById('search-form')?.scrollIntoView()
-  }
-
   return (
     <>
       <section className="section" id="opportunities">
@@ -65,7 +60,7 @@ export default function Opportunities() {
               <h2>{t('opportunities.title')}</h2>
               <p>{t('opportunities.text')}</p>
             </div>
-            <a className="text-link" href="#search-form" onClick={scrollToSearch}>
+            <a className="text-link" href="#search-form">
               {t('opportunities.findSector')} <Icon name="arrow" />
             </a>
           </div>
